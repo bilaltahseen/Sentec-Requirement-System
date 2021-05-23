@@ -1,4 +1,25 @@
-departments = ['Electronics', 'Electrical', 'Civil', 'Mechanical', 'CIS']
+departments = ["Civil"
+               "Urban"
+               "Petroleum",
+               "Earthquake",
+               "Mechanical",
+               "Textile",
+               "IM",
+               "Automotive",
+               "Electrical",
+               "CIS",
+               "Electronic",
+               "Software",
+               "BCIT",
+               "Mathematics",
+               "Chemistry",
+               "Chemical",
+               "Materials"
+               "Metallurgical"
+               "Polymer",
+               "Food",
+               "Environmental",
+               "Economics", ]
 domains = ['Promotions', 'Technical', 'Robotics', 'Social Media']
 year = ['First Year', 'Second Year', 'Third Year', 'Forth Year']
 
