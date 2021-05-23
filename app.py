@@ -13,7 +13,7 @@ def create_app():
     app = Flask(__name__)
 
     app.config['SECRET_KEY'] = 'sentec20202021sec2&391asvBasciSascii'
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URI_UPDATED']
 
     migrate = Migrate(app, db)
     db.init_app(app)

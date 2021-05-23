@@ -1,8 +1,8 @@
 """Initial migration.
 
-Revision ID: 56859057b27a
+Revision ID: 86ba127c2f99
 Revises: 
-Create Date: 2021-05-22 00:36:54.277556
+Create Date: 2021-05-23 12:08:39.513879
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '56859057b27a'
+revision = '86ba127c2f99'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -41,27 +41,27 @@ def upgrade():
                     sa.UniqueConstraint('email'),
                     sa.UniqueConstraint('email')
                     )
-    registration_controls = op.create_table('registration_controls',
-                                            sa.Column('id', sa.Integer(),
-                                                      nullable=False),
-                                            sa.Column('isRegistration',
-                                                      sa.Boolean(), nullable=False),
-                                            sa.PrimaryKeyConstraint('id')
-                                            )
 
-    op.create_table('user',
-                    sa.Column('id', sa.Integer(), nullable=False),
-                    sa.Column('email', sa.String(length=100), nullable=True),
-                    sa.Column('password', sa.String(
-                        length=100), nullable=True),
-                    sa.Column('name', sa.String(length=1000), nullable=True),
-                    sa.PrimaryKeyConstraint('id'),
-                    sa.UniqueConstraint('email'),
-                    sa.UniqueConstraint('email')
-                    )
-    # ### end Alembic commands ###
 
-    op.bulk_insert(registration_controls, [{'id': 1, 'isRegistration': True}])
+registration_controls = op.create_table('registration_controls',
+                                        sa.Column('id', sa.Integer(),
+                                                  nullable=False),
+                                        sa.Column('isRegistration',
+                                                  sa.Boolean(), nullable=False),
+                                        sa.PrimaryKeyConstraint('id')
+                                        )
+op.create_table('user',
+                sa.Column('id', sa.Integer(), nullable=False),
+                sa.Column('email', sa.String(length=100), nullable=True),
+                sa.Column('password', sa.String(length=100), nullable=True),
+                sa.Column('name', sa.String(length=1000), nullable=True),
+                sa.PrimaryKeyConstraint('id'),
+                sa.UniqueConstraint('email'),
+                sa.UniqueConstraint('email')
+                )
+# ### end Alembic commands ###
+
+op.bulk_insert(registration_controls, [{'id': 1, 'isRegistration': True}])
 
 
 def downgrade():
