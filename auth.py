@@ -40,14 +40,14 @@ def login_post():
 
 @auth.route('/signup')
 def signup():
-    if os.environ['IS_SIGNUP']:
+    if os.environ['IS_SIGNUP'] == 'True':
         return render_template('signup.html')
     return redirect(url_for('auth.login'))
 
 
 @auth.route('/signup', methods=['POST'])
 def signup_post():
-    if os.environ['IS_SIGNUP']:
+    if os.environ['IS_SIGNUP'] == 'True':
 
         email = request.form.get('email')
         name = request.form.get('name')
