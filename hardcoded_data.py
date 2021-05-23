@@ -1,5 +1,5 @@
-departments = ["Civil"
-               "Urban"
+departments = ["Civil",
+               "Urban",
                "Petroleum",
                "Earthquake",
                "Mechanical",
@@ -14,8 +14,8 @@ departments = ["Civil"
                "Mathematics",
                "Chemistry",
                "Chemical",
-               "Materials"
-               "Metallurgical"
+               "Materials",
+               "Metallurgical",
                "Polymer",
                "Food",
                "Environmental",
