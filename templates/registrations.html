@@ -129,6 +129,7 @@
             <th scope="col ">Department</th>
             <th scope="col ">Status</th>
             <th scope="col ">Details</th>
+            <th scope="col ">Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -141,13 +142,13 @@
             <td>{{registarions.phone_number}}</td>
             <td>{{registarions.department}}</td>
             {% if registarions.status == 'pending'%}
-            <td class="text-white text-capitalize d-block bg-info">{{registarions.status}}</td>
+            <td><button  class="btn btn-info" style="pointer-events: none;">{{registarions.status}}</button></td>
             {% elif registarions.status == 'hold'%}
-            <td class="text-white text-capitalize d-block bg-primary">{{registarions.status}}</td>
+            <td><button  class="btn btn-primary" style="pointer-events: none;">{{registarions.status}}</button></td>
             {% elif registarions.status == 'accept'%}
-            <td class="text-white text-capitalize d-block bg-success">{{registarions.status}}</td>
+            <td><button  class="btn btn-success" style="pointer-events: none;">{{registarions.status}}</button></td>
             {% else%}
-            <td class="text-white text-capitalize d-block bg-danger">{{registarions.status}}</td>
+            <td><button  class="btn btn-danger" style="pointer-events: none;">{{registarions.status}}</button></td>
             {%endif%}
 
             <td>
@@ -156,6 +157,16 @@
                 >View Details</a
               >
             </td>
+            {% if current_user.email == "president@sentec.com" %}
+            
+              <td>
+                <form action="{{ url_for('main.delete') }}" method="POST">
+                <input name="email" hidden  value={{registarions.email}}></input>
+                <input class="form-control btn btn-outline-danger" type='submit' value="X"/>
+  
+            </form>
+          </td>
+            {% endif %}
           </tr>
           {% endfor %}
         </tbody>

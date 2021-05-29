@@ -228,3 +228,17 @@ def statistics():
             return render_template('statistics.html')
     else:
         return redirect(url_for('auth.login'))
+
+
+@main.route('/delete', methods=['POST'])
+@login_required
+def delete():
+    if current_user.email == 'president@sentec.com':
+        email = request.form.get('email')
+        current_canidate = Canidates.query.filter_by(email=email).first()
+        db.session.delete(current_canidate)
+        db.session.commit()
+        flash(f'Candidate {email} deleted ', category='danger')
+        return redirect(url_for('main.registrations'))
+    else:
+        return redirect(url_for('auth.login'))
