@@ -129,7 +129,9 @@
             <th scope="col ">Department</th>
             <th scope="col ">Status</th>
             <th scope="col ">Details</th>
+            {% if current_user.email == "president@sentec.com" %}
             <th scope="col ">Delete</th>
+            {% endif %}
           </tr>
         </thead>
         <tbody>
