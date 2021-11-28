@@ -29,7 +29,8 @@ domains = ['Promotions',
            'Robotics & IT',
            'Social Media',
            'Event Management',
-           'Research & Development']
+           'Research & Development',
+           'Project Exhibition']
 
 year = ['First Year', 'Second Year', 'Third Year',
         'Forth Year']
